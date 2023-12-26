@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:c="taglib prefix">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12 text-right">
+            <button onclick="logout()" class="btn btn-warning">Log Out</button>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <button class="btn btn-primary btn-block" onclick="createTask()">Создать задание</button>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-success btn-block" onclick="listTasks()">Лист заданий</button>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-info btn-block" onclick="showStatistics()">Статистика</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    function logout() {
+        // Here, you would typically implement the logout functionality, e.g., redirecting to a logout page or clearing session data.
+        alert("Logged out successfully!");
+        // For demonstration purposes, this would redirect to a hypothetical login page:
+        window.location.href = "/login";
+    }
+
+    function createTask() {
+        // Implement functionality for creating a task
+        window.location.href = "/showNewTask";
+    }
+
+    function listTasks() {
+        // Implement functionality for listing tasks
+        window.location.href = "/findTaskPage";
+    }
+
+    function showStatistics() {
+
+        window.location.href = "/findStatPage";
+    }
+</script>
+
+</body>
+</html>

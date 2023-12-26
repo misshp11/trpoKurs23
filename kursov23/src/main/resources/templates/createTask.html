@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:c="taglib prefix">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="container mb-2 mt-5">
+        <form action="#" th:action="@{/saveTask}" th:object="${tasks}"
+            method="post">
+            <a>Название задания</a> <input type="text" th:field="*{task_name}"
+                placeholder="Название задания" class="form-control mb-2 col-6">
+            <a>Айди предмета</a> <input type="number" th:field="*{id_subject}"
+                placeholder="Айди предмета" class="form-control mb-2 col-6">
+            <a>Айди группы</a><input type="number" th:field="*{id_group}"
+                placeholder="Айди группы" class="form-control mb-2 col-6">
+            <a>Айди студента</a><input type="number" th:field="*{id_user}"
+                placeholder="Айди студента" class="form-control mb-2 col-6">
+            <button type="submit" onclick="Done()" class="btn btn-info col-5"> Сохранить Задание</button>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-left">
+            <button onclick="Cancel()"class="btn btn-info mb-2 col-2">Назад</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    function Done() {
+        // Here, you would typically implement the logout functionality, e.g., redirecting to a logout page or clearing session data.
+        // For demonstration purposes, this would redirect to a hypothetical login page:
+        alert("Задание создано");
+    }
+    function Cancel() {
+        // Here, you would typically implement the logout functionality, e.g., redirecting to a logout page or clearing session data.
+        // For demonstration purposes, this would redirect to a hypothetical login page:
+        window.location.href = "/admin";
+    }
+</script>
+</body>
+</html>

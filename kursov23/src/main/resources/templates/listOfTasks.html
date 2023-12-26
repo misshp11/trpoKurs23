@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:c="taglib prefix">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom style for table header */
+        .peach-header th {
+            background-color: #FFCBA4; /* Peach color */
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12 text-right">
+            <button onclick="Cancel()" class="btn btn-primary">Назад</button>
+            <button onclick="logout()" class="btn btn-warning">Log Out</button>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead class="peach-header">
+                <tr>
+                    <th> Предмет </th>
+                    <th> Название задания </th>
+                    <th> Фамилия </th>
+                    <th> Имя </th>
+                    <th> Название группы </th>
+                    <th> Оценка</th>
+                    <th> Оценка</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="taskDTO : ${taskList}">
+                    <td style="text-align: center;" th:text="${taskDTO.subname}"></td>
+                    <td style="text-align: center;" th:text="${taskDTO.tasks.task_name}"></td>
+                    <td style="text-align: center;" th:text="${taskDTO.surname}"></td>
+                    <td style="text-align: center;" th:text="${taskDTO.pers_name}"></td>
+                    <td style="text-align: center;" th:text="${taskDTO.group_name}"></td>
+                    <td style="text-align: center; width:100px;"  th:text="${taskDTO.tasks.mark}"></td>
+                    <td> <a th:href="@{/formForUpdateTask/{id}(id=${taskDTO.tasks.id})}" class="btn btn-primary">Обновить</a>
+                        <a th:href="@{/deleteTask/{id}(id=${taskDTO.tasks.id})}" class="btn btn-danger">Удалить</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    function logout() {
+        // Here, you would typically implement the logout functionality, e.g., redirecting to a logout page or clearing session data.
+        alert("Logged out successfully!");
+        // For demonstration purposes, this would redirect to a hypothetical login page:
+        window.location.href = "/login";
+    }
+    function Cancel() {
+        // Here, you would typically implement the logout functionality, e.g., redirecting to a logout page or clearing session data.
+        // For demonstration purposes, this would redirect to a hypothetical login page:
+        window.location.href = "/admin";
+    }
+</script>
+</body>
+</html>
